@@ -1,5 +1,33 @@
 {
   "enabledMcpjsonServers": ["playwright"],
   "enableAllProjectMcpServers": true,
-  "plansDirectory": ".claude/plans"
+  "plansDirectory": ".claude/plans",
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "notify-send 'Claude Code' 'Claude가 기다리는 중'"
+          },
+          {
+            "type": "command",
+            "command": "bash \"$(pwd)/.claude/scripts/notify-slack.sh\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$(pwd)/.claude/scripts/notify-slack.sh\""
+          }
+        ]
+      }
+    ]
+  }
 }
