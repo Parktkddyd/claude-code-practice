@@ -1,0 +1,15 @@
+- navigation [ref=e5]:
+  - link "홈" [ref=e6] [cursor=pointer]:
+    - /url: /
+  - link "Button" [ref=e7] [cursor=pointer]:
+    - /url: /examples/button
+  - link "Card" [ref=e8] [cursor=pointer]:
+    - /url: /examples/card
+  - link "Input" [ref=e9] [cursor=pointer]:
+    - /url: /examples/input
+  - link "Badge" [ref=e10] [cursor=pointer]:
+    - /url: /examples/badge
+  - link "로그인 폼" [ref=e11] [cursor=pointer]:
+    - /url: /examples/forms/login
+  - link "회원가입 데모" [ref=e12] [cursor=pointer]:
+    - /url: /register
