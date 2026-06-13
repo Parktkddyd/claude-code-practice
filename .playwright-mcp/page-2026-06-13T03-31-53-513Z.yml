@@ -1,0 +1,41 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Starter Kit" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=e5]:
+        - link "홈" [ref=e6] [cursor=pointer]:
+          - /url: /
+        - link "Button" [ref=e7] [cursor=pointer]:
+          - /url: /examples/button
+        - link "Card" [ref=e8] [cursor=pointer]:
+          - /url: /examples/card
+        - link "Input" [ref=e9] [cursor=pointer]:
+          - /url: /examples/input
+        - link "Badge" [ref=e10] [cursor=pointer]:
+          - /url: /examples/badge
+        - link "로그인 폼" [ref=e11] [cursor=pointer]:
+          - /url: /examples/forms/login
+        - link "회원가입 데모" [ref=e12] [cursor=pointer]:
+          - /url: /register
+  - main [ref=e13]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - heading "로그인 폼 예제" [level=1] [ref=e16]
+        - paragraph [ref=e17]: React Hook Form + Zod 유효성 검사 조합 예제
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - generic [ref=e20]: 로그인
+          - generic [ref=e21]: 이메일과 비밀번호를 입력해주세요.
+        - generic [ref=e22]:
+          - generic [ref=e23]:
+            - generic [ref=e24]:
+              - generic [ref=e25]: 이메일
+              - textbox "email@example.com" [ref=e27]: test@example.com
+            - generic [ref=e28]:
+              - generic [ref=e29]: 비밀번호
+              - textbox "비밀번호 입력" [active] [ref=e31]
+          - button "로그인" [ref=e33]
+  - button "Open Next.js Dev Tools" [ref=e39] [cursor=pointer]:
+    - img [ref=e40]
+  - alert [ref=e43]

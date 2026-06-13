@@ -1,0 +1,51 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Starter Kit" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=e5]:
+        - link "홈" [ref=e6] [cursor=pointer]:
+          - /url: /
+        - link "Button" [ref=e7] [cursor=pointer]:
+          - /url: /examples/button
+        - link "Card" [ref=e8] [cursor=pointer]:
+          - /url: /examples/card
+        - link "Input" [ref=e9] [cursor=pointer]:
+          - /url: /examples/input
+        - link "Badge" [ref=e10] [cursor=pointer]:
+          - /url: /examples/badge
+        - link "로그인 폼" [ref=e11] [cursor=pointer]:
+          - /url: /examples/forms/login
+        - link "회원가입 데모" [ref=e12] [cursor=pointer]:
+          - /url: /register
+  - main [ref=e13]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - heading "회원가입 데모" [level=1] [ref=e16]
+        - paragraph [ref=e17]: Card · Input · Button · Badge · Form 컴포넌트를 조합한 최종 데모
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - generic [ref=e20]: 회원가입
+          - generic [ref=e21]: 아래 정보를 입력하여 계정을 생성하세요.
+          - generic [ref=e23]: 데모
+        - generic [ref=e24]:
+          - generic [ref=e25]:
+            - generic [ref=e26]:
+              - generic [ref=e27]: 이름
+              - textbox "홍길동" [ref=e29]: 김철수
+            - generic [ref=e30]:
+              - generic [ref=e31]: 이메일
+              - textbox "email@example.com" [active] [ref=e33]
+            - generic [ref=e34]:
+              - generic [ref=e35]: 비밀번호
+              - textbox "8자 이상, 영문+숫자 포함" [ref=e37]
+              - paragraph [ref=e38]: 영문자와 숫자를 포함하여 8자 이상 입력해주세요.
+            - generic [ref=e39]:
+              - generic [ref=e40]: 비밀번호 확인
+              - textbox "비밀번호 재입력" [ref=e42]
+          - generic [ref=e43]:
+            - button "가입하기" [ref=e44]
+            - button "초기화" [ref=e45]
+  - button "Open Next.js Dev Tools" [ref=e51] [cursor=pointer]:
+    - img [ref=e52]
+  - alert [ref=e55]
