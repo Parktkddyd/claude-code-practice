@@ -1,9 +1,12 @@
 "use client"
 
+import { useRef } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { Loader2 } from "lucide-react"
 
 import { registerSchema, type RegisterFormValues } from "@/lib/validations"
+import { logger } from "@/lib/logger"
 import {
   Form,
   FormField,
@@ -28,6 +31,8 @@ import {
 
 /** 회원가입 최종 데모 — 모든 컴포넌트 조합 */
 export default function RegisterPage() {
+  const confirmPasswordRef = useRef<HTMLInputElement>(null)
+
   const form = useForm<RegisterFormValues>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
@@ -39,7 +44,7 @@ export default function RegisterPage() {
   })
 
   function onSubmit(values: RegisterFormValues) {
-    console.log("회원가입 데이터:", values)
+    logger.debug("회원가입 데이터 제출", { email: values.email, name: values.name })
     alert(`가입 완료! 환영합니다, ${values.name}님.`)
     form.reset()
   }
@@ -132,6 +137,7 @@ export default function RegisterPage() {
                     <FormLabel>비밀번호 확인</FormLabel>
                     <FormControl>
                       <Input
+                        ref={confirmPasswordRef}
                         type="password"
                         placeholder="비밀번호 재입력"
                         aria-invalid={!!form.formState.errors.confirmPassword}
@@ -149,8 +155,16 @@ export default function RegisterPage() {
                 type="submit"
                 className="w-full"
                 disabled={form.formState.isSubmitting}
+                aria-busy={form.formState.isSubmitting}
               >
-                가입하기
+                {form.formState.isSubmitting ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    가입 중...
+                  </>
+                ) : (
+                  "가입하기"
+                )}
               </Button>
               <Button
                 type="button"

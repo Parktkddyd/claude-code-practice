@@ -3,6 +3,11 @@ import { Input as InputPrimitive } from "@base-ui/react/input"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * 입력 필드 컴포넌트
+ * @note @base-ui/react Input을 사용합니다 (shadcn/ui 아님)
+ * aria-invalid를 통한 에러 상태 지원
+ */
 function Input({ className, type, ...props }: React.ComponentProps<"input">) {
   return (
     <InputPrimitive

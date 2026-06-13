@@ -40,13 +40,13 @@ function FormField<
 /** FormField 컨텍스트와 RHF 상태를 합쳐 반환 */
 function useFormField() {
   const fieldContext = React.useContext(FormFieldContext)
-  const { getFieldState, formState } = useFormContext()
-  const fieldState = getFieldState(fieldContext.name, formState)
 
-  if (!fieldContext) {
+  if (!fieldContext?.name) {
     throw new Error("useFormField must be used within <FormField>")
   }
 
+  const { getFieldState, formState } = useFormContext()
+  const fieldState = getFieldState(fieldContext.name, formState)
   const { id } = React.useContext(FormItemContext)
 
   return {
@@ -115,7 +115,7 @@ function FormDescription({ className, ...props }: React.ComponentProps<"p">) {
 
 function FormMessage({ className, children, ...props }: React.ComponentProps<"p">) {
   const { error, formMessageId } = useFormField()
-  const body = error ? String(error?.message ?? "") : children
+  const body = error?.message || children
 
   if (!body) return null
 
@@ -123,6 +123,7 @@ function FormMessage({ className, children, ...props }: React.ComponentProps<"p"
     <p
       id={formMessageId}
       className={cn("text-xs font-medium text-destructive", className)}
+      role="alert"
       {...props}
     >
       {body}

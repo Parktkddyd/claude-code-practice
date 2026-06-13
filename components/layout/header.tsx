@@ -30,6 +30,7 @@ export function Header() {
             <Link
               key={href}
               href={href}
+              aria-current={pathname === href ? "page" : undefined}
               className={cn(
                 "rounded-md px-3 py-1.5 text-sm transition-colors whitespace-nowrap",
                 pathname === href

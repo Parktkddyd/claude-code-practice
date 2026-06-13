@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 
 import { loginSchema, type LoginFormValues } from "@/lib/validations"
+import { logger } from "@/lib/logger"
 import {
   Form,
   FormField,
@@ -32,7 +33,7 @@ export default function LoginFormPage() {
 
   /** 추후 Auth 연결 시 이 핸들러에 API 호출 추가 */
   function onSubmit(values: LoginFormValues) {
-    console.log("로그인 폼 데이터:", values)
+    logger.debug("로그인 폼 데이터 제출", { email: values.email })
     alert(`제출된 이메일: ${values.email}`)
   }
 

@@ -22,7 +22,7 @@ export const nameSchema = z
 /** 로그인 폼 스키마 */
 export const loginSchema = z.object({
   email: emailSchema,
-  password: z.string().min(1, "비밀번호를 입력해주세요."),
+  password: passwordSchema,
 })
 
 /** 회원가입 폼 스키마 */
