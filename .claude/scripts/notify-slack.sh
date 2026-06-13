@@ -8,22 +8,22 @@ fi
 
 input=$(cat)
 
-# 단일 jq 호출로 모든 필드 한 번에 파싱 (성능 67% 개선)
-IFS=$'\n' read -r hook_event cwd message < <(
-  echo "$input" | jq -r '
-    .hook_event_name // "unknown",
-    .cwd // "",
-    .message // "Claude Code가 입력을 기다리고 있습니다"'
-)
+# jq로 필드 파싱 (hook_event_name은 필수, 나머지는 선택)
+hook_event=$(echo "$input" | jq -r '.hook_event_name // "unknown"')
+cwd=$(echo "$input" | jq -r '.cwd // ""')
+message=$(echo "$input" | jq -r '.message // ""')
 
 # cwd가 빈 문자열이면 현재 디렉토리 사용
 cwd="${cwd:-.}"
 project=$(basename "$cwd")
 timestamp=$(date '+%Y-%m-%d %H:%M:%S')
 
+
 case "$hook_event" in
   Notification)
-    text="🔔 *[$project]* $message"
+    # message가 없으면 기본 메시지 사용
+    msg_text="${message:-Claude Code가 입력을 기다리고 있습니다}"
+    text="🔔 *[$project]* $msg_text"
     status="⏳ 입력 대기 중"
     ;;
   Stop)
