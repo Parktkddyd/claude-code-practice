@@ -16,6 +16,8 @@ IFS=$'\n' read -r hook_event cwd message < <(
     .message // "Claude Code가 입력을 기다리고 있습니다"'
 )
 
+# cwd가 빈 문자열이면 현재 디렉토리 사용
+cwd="${cwd:-.}"
 project=$(basename "$cwd")
 timestamp=$(date '+%Y-%m-%d %H:%M:%S')
 
